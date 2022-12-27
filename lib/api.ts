@@ -35,5 +35,5 @@ export const register = (user: {}) => {
 }
 
 export const signin = (user: {}) => {
-  return fetcher({ url: '/api/register', method: 'POST', body: user })
+  return fetcher({ url: '/api/signin', method: 'POST', body: user })
 }

@@ -1,29 +1,38 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { jwtVerify } from 'jose'
+const PUBLIC_FILE = /\.(.*)$/
 
 const verifyJWT = async (jwt: string) => {
   const { payload } = await jwtVerify(
     jwt,
     new TextEncoder().encode(process.env.JWT_SECRET)
   )
+
+  return payload
 }
 
-export async function middleware(req: NextRequest) {
+export default async function middleware(req: NextRequest) {
   if (!process.env.COOKIE_NAME) {
     throw new Error('Cookie name not set')
   }
 
   const { pathname } = req.nextUrl
+  if (
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/api') ||
+    pathname.startsWith('/static') ||
+    pathname.startsWith('/signin') ||
+    pathname.startsWith('/register') ||
+    PUBLIC_FILE.test(pathname)
+  ) {
+    return NextResponse.next()
+  }
+
   const jwt = req.cookies.get(process.env.COOKIE_NAME)
 
   if (!jwt) {
     req.nextUrl.pathname = '/signin'
     return NextResponse.redirect(req.nextUrl)
-  } else {
-    if (pathname.startsWith('/signin') || pathname.startsWith('/register')) {
-      req.nextUrl.pathname = '/dashboard'
-      return NextResponse.redirect(req.nextUrl)
-    }
   }
 
   try {
@@ -34,8 +43,4 @@ export async function middleware(req: NextRequest) {
     req.nextUrl.pathname = '/signin'
     return NextResponse.redirect(req.nextUrl)
   }
-}
-
-export const config = {
-  matcher: ['/dashboard', '/project/:path*', '/signin', '/register'],
 }

@@ -35,7 +35,7 @@ model Project {
   description String?
   due         DateTime?
   deleted     Boolean   @default(false)
-  task        Task[]
+  tasks       Task[]
 
   @@unique([ownerId, name]) // A single owner can't have 2 projects with the same name
   @@index([ownerId, id]) // Index items that you plan on quering by to improve look up times
