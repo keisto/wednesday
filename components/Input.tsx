@@ -1,6 +1,6 @@
 import { classNames } from '@/lib/utils'
 
-const Input: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = ({
   className,
   ...props
 }) => {
