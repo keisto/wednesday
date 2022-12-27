@@ -7,7 +7,7 @@ const Card: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   return (
     <div
       className={classNames(
-        'rounded-3xl px-10 py-4 drop-shadow-xl bg-white',
+        'rounded-2xl px-10 py-4 drop-shadow-xl bg-white',
         className ?? ''
       )}
     >

@@ -7,7 +7,7 @@ const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = ({
   return (
     <input
       className={classNames(
-        'border-2 px-6 py-2 text-lg rounded-3xl w-full',
+        'border-2 px-6 py-2 text-lg rounded-2xl w-full',
         className ?? ''
       )}
       {...props}

@@ -2,7 +2,7 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 const buttonClasses = cva(
   [
-    'rounded-3xl',
+    'rounded-2xl',
     'font-bold',
     'hover:scale-110',
     'active:scale-100',

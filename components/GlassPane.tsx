@@ -7,7 +7,7 @@ const GlassPane: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   return (
     <div
       className={classNames(
-        'backdrop-blur-lg backdrop-saturate-200 rounded-2xl border-2 bg-white/[.4]',
+        'backdrop-blur-lg backdrop-saturate-200 rounded-3xl border-2 bg-white/[.4] p-6',
         className ?? ''
       )}
     >
