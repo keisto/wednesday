@@ -4,7 +4,7 @@ import Card from './Card'
 import SidebarLink, { SidebarLinkType } from './SidebarLink'
 
 const links = [
-  { label: 'Home', icon: 'Grid', link: '/home' },
+  { label: 'Dashboard', icon: 'Grid', link: '/dashboard' },
   {
     label: 'Calendar',
     icon: 'Calendar',

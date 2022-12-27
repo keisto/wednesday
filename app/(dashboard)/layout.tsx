@@ -1,4 +1,6 @@
-import './globals.css'
+import '../globals.css'
+import GlassPane from '@/components/GlassPane'
+import Sidebar from '@/components/Sidebar'
 
 export default function RootLayout({
   children,
@@ -8,7 +10,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body>{children}</body>
+      <body className="bg-main">
+        <GlassPane className="w-full h-full flex items-center">
+          <Sidebar />
+          {children}
+        </GlassPane>
+      </body>
     </html>
   )
 }
