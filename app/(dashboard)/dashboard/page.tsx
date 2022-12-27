@@ -8,6 +8,7 @@ import TaskCard from '@/components/TaskCard'
 import { getUserFromCookie } from '@/lib/auth'
 import GreetingSkeleton from '@/components/GreetingSkeleton'
 import ProjectCard, { ProjectWithTasks } from '@/components/ProjectCard'
+import NewProject from '@/components/NewProject'
 
 const getData = async () => {
   await delay(2000)
@@ -41,7 +42,9 @@ export default async function Dashboard() {
               </Link>
             </div>
           ))}
-          <div className="w-1/3 p-3">{/* new project here */}</div>
+          <div className="w-1/3 p-3">
+            <NewProject />
+          </div>
         </div>
         <div className="mt-6 flex-2 grow w-full flex">
           <div className="w-full">

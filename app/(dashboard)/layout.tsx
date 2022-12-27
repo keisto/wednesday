@@ -15,6 +15,7 @@ export default function RootLayout({
           <Sidebar />
           {children}
         </GlassPane>
+        <div id="modal"></div>
       </body>
     </html>
   )
